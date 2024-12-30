@@ -1,0 +1,23 @@
+﻿version: '3.8'
+
+services:
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379" # Mapowanie portu Redis
+    volumes:
+      - redis-data:/data # Trwałość danych w Redis
+    command: ["redis-server", "--appendonly", "yes"] # Włączenie trwałości danych
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017" # Mapowanie portu MongoDB
+    volumes:
+      - mongo-data:/data/db # Trwałość danych w MongoDB
+
+volumes:
+  redis-data:
+  mongo-data:
