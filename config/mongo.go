@@ -1,4 +1,4 @@
-﻿package config
+package config
 
 import (
 	"context"
@@ -17,7 +17,7 @@ func InitMongo() {
 
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
 	if err != nil {
-		log.Fatalf("Nie można połączyć z MongoDB: %v", err)
+		log.Fatalf("Error connection to MongoDB: %v", err)
 	}
 
 	if err := client.Ping(ctx, nil); err != nil {

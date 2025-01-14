@@ -1,4 +1,4 @@
-﻿package config
+package config
 
 import (
 	"context"
@@ -16,7 +16,7 @@ func InitRedis() {
 
 	_, err := Rdb.Ping(context.Background()).Result()
 	if err != nil {
-		log.Fatalf("Nie można połączyć z Redis: %v", err)
+		log.Fatalf("Error connection to Redis: %v", err)
 	}
 	log.Println("Połączono z Redis")
 }
